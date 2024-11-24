@@ -12,7 +12,7 @@ on:
 jobs:
     deploy-on-ubuntu:
      concurrency:
-        group: ${{ github.workflow }}-${{ matrix.os }}
+        group: jobs
         cancel-in-progress: true
      strategy:
         fail-fast: false
