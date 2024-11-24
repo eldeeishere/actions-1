@@ -1,0 +1,37 @@
+name: Context dump
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+   dump_context:
+      matrix:
+          os: [ubuntu-latest, windows-latest]
+      runs-on: ${{matrix.os}}
+      steps:
+          - name: Dump context
+            env:
+              gitub: ${{ toJson(github)}}
+            run: echo "Context: $github"
+          - name: Dump job context
+            env:
+              job: ${{ toJson(job)}}
+            run: echo "Job context: $job"
+          - name: Dump steps context
+            env:
+              steps: ${{ toJson(steps)}}
+            run: echo "Steps context: $steps"
+          - name: Dump runner context
+            env:
+              runner: ${{ toJson(runnner)}}
+            run: echo "Runner context: $runner"
+          - name: Dump strategy context
+            env:
+              strategy: ${{ toJson(strategy)}}
+            run: echo "Strategy context: $strategy"
+          - name: Dump matrix context
+            env:
+              matrix: ${{ toJson(matrix)}}
+            run: echo "Matrix context: $matrix"
