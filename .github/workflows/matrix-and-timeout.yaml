@@ -1,8 +1,9 @@
 name: Matrix
 
 on:
-    push:
-    workflow_dispatch:
+  # Schedule a workflow to run every 2 minutes
+  schedule:
+    - cron: '*/2 * * * *'
 
 jobs:
     deploy-on-ubuntu:
