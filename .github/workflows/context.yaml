@@ -14,24 +14,24 @@ jobs:
           - name: Dump context
             env:
               gitub: ${{ toJson(github)}}
-            run: echo "Context: $github"
+            run: echo "$github"
           - name: Dump job context
             env:
               job: ${{ toJson(job)}}
-            run: echo "Job context: $job"
+            run: echo "$job"
           - name: Dump steps context
             env:
               steps: ${{ toJson(steps)}}
-            run: echo "Steps context: $steps"
+            run: echo "$steps"
           - name: Dump runner context
             env:
               runner: ${{ toJson(runnner)}}
-            run: echo "Runner context: $runner"
+            run: echo "$runner"
           - name: Dump strategy context
             env:
               strategy: ${{ toJson(strategy)}}
-            run: echo "Strategy context: $strategy"
+            run: echo "$strategy"
           - name: Dump matrix context
             env:
               matrix: ${{ toJson(matrix)}}
-            run: echo "Matrix context: $matrix"
+            run: echo "$matrix"
