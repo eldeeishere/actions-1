@@ -24,7 +24,7 @@ jobs:
                 - images: alpine
                   os: windows-latest
             include:
-                - images: [amd64/alpine]
+                - images: [amd64/haproxy]
                   os: ubuntu-20.04
      runs-on: ${{matrix.os}}
      steps:
