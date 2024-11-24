@@ -24,10 +24,6 @@ jobs:
             env:
               steps: ${{ toJson(steps)}}
             run: echo "$steps"
-          - name: Dump runner context
-            env:
-              runner: ${{ toJson(runnner)}}
-            run: echo "$runner"
           - name: Dump strategy context
             env:
               strategy: ${{ toJson(strategy)}}
