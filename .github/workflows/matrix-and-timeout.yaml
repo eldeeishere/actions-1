@@ -4,10 +4,16 @@ on:
   # Schedule a workflow to run every 2 minutes
   # schedule:
   #   - cron: '*/2 * * * *'
-  worklow_dispatch:
+  push:
+    branches:
+      - main
+
 
 jobs:
     deploy-on-ubuntu:
+     concurrency:
+        group: ${{ github.workflow }}-${{ matrix.os }}
+        cancel-in-progress: true
      strategy:
         fail-fast: false
         max-parallel: 2
