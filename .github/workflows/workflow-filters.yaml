@@ -1,0 +1,26 @@
+name: Workflow filter test
+
+on:
+  push:
+    # branches-ignore:
+    #   - "test/*"
+    branches:
+        - main
+        - "!test/**"
+  pull_request:
+        types:
+            - opened
+            - closed
+        branches:
+            - main
+        paths-ignore:
+            - "README.md"
+        
+
+
+jobs:
+    test_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Workflow filter test
+          run: echo "This is a event/job filter test - ${{ github.event_name }}"
